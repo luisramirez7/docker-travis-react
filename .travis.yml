@@ -15,7 +15,7 @@ before_deploy:
     - sudo apt-get -y install zip
     - cd ./frontend
     - zip -r ../luchoApp.zip *
-    - cd ../../
+    - cd ../
 
 deploy:
     skip_cleanup: true
