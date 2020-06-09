@@ -16,6 +16,7 @@ before_deploy:
     - cd ./frontend
     - zip -r ../luchoApp.zip *
     - cd ../
+    - ls
 
 deploy:
     skip_cleanup: true
