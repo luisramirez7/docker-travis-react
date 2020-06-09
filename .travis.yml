@@ -15,7 +15,7 @@ deploy:
     provider: elasticbeanstalk
     region: "us-east-2"
     app: "docker-react-lucho"
-    env: "DockerReactLucho-env"
+    env: "DockerReactLucho-env-1"
     bucket_name: "elasticbeanstalk-us-east-2-774154012305"
     bucket_path: "docker-react-lucho"
     on:
