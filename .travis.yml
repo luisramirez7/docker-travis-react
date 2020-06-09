@@ -11,6 +11,10 @@ before_install:
 script:
     - docker run -e CI=true luisatjayacompany/docker-react-2 npm run test
 
+before_deploy:
+    - sudo apt-get -y install zip
+    - zip -r -j luchoApp.zip ./frontend/*
+
 deploy:
     provider: elasticbeanstalk
     region: "us-east-2"
@@ -23,3 +27,4 @@ deploy:
 
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
+    zip: "./luchoApp.zip"
