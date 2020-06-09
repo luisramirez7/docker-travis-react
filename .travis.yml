@@ -13,9 +13,12 @@ script:
 
 before_deploy:
     - sudo apt-get -y install zip
-    - zip -r -j luchoApp.zip ./frontend/*
+    - cd ./frontend
+    - zip -r  ../../luchoApp.zip *
+    - cd ../../
 
 deploy:
+    skip_cleanup: true
     provider: elasticbeanstalk
     region: "us-east-2"
     app: "docker-react-lucho-2"
