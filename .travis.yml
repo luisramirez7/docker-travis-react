@@ -6,17 +6,10 @@ services:
     - docker
 
 before_install:
-    - docker build -t luisatjayacompany/docker-react-2 -f ./frontend/Dockerfile.dev ./frontend
+    - docker build -t luisatjayacompany/docker-react-2 -f /Dockerfile.dev .
 
 script:
     - docker run -e CI=true luisatjayacompany/docker-react-2 npm run test
-
-before_deploy:
-    - sudo apt-get -y install zip
-    - cd ./frontend
-    - zip -r ../luchoApp.zip *
-    - cd ../
-    - ls
 
 deploy:
     skip_cleanup: true
@@ -31,4 +24,3 @@ deploy:
 
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
-    zip: "./luchoApp.zip"
