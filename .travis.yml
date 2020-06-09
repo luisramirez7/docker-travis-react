@@ -6,7 +6,7 @@ services:
     - docker
 
 before_install:
-    - docker build -t luisatjayacompany/docker-react-2 -f frontend/Dockerfile.dev ./frontend
+    - docker build -t luisatjayacompany/docker-react-2 -f ./frontend/Dockerfile.dev ./frontend
 
 script:
     - docker run -e CI=true luisatjayacompany/docker-react-2 npm run test
@@ -14,7 +14,7 @@ script:
 before_deploy:
     - sudo apt-get -y install zip
     - cd ./frontend
-    - zip -r  ../../luchoApp.zip *
+    - zip -r  -j luchoApp.zip ./frontend/*
     - cd ../../
 
 deploy:
